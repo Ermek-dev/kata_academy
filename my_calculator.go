@@ -109,7 +109,7 @@ func divide(a, b interface{}) interface{} {
 		if result < 1 {
 			panic("Результат меньше единицы. Римские числа не могут быть отрицательными.")
 		}
-		return result
+		return arabicToRoman(strconv.Itoa(result))
 	}
 	return nil
 }
@@ -190,7 +190,7 @@ func main() {
 	} else {
 		a, err = strconv.Atoi(parts[0])
 		if err != nil || !isValidArabicNumber(a.(int)) {
-			panic("Выдача паники.Введено неверное арабское число. Поддерживаемые значения: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10\nПожалуйста попробуйте еще раз)")
+			panic("Выдача паники.Введено неверное арабское число. Поддерживаемые значения: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10\n-Пожалуйста попробуйте еще раз)-")
 		}
 		b, err = strconv.Atoi(parts[2])
 		if err != nil || !isValidArabicNumber(b.(int)) {
@@ -218,6 +218,7 @@ func main() {
 	switch result := result.(type) {
 	case int:
 		fmt.Println("Ваш результат:", result)
+		fmt.Println("У вас классно получается.Так держать!!!")
 	case string:
 		fmt.Println("Ваш результат:", result)
 	}
